@@ -5,13 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<style>
-body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-body {font-size:16px;}
-.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-.w3-half img:hover{opacity:1}
-.img{display: inline;}
-</style>
+<link rel="stylesheet" href="css/index.css">
 <body>
 
 <!-- Sidebar/menu -->
@@ -42,7 +36,7 @@ body {font-size:16px;}
       <h1 class="w3-jumbo"><b>Food Map</b></h1>
       <h1 class="w3-xxxlarge w3-text-red"><b>Restaurantes</b></h1>
       <hr style="width:50px;border:5px solid red" class="w3-round">
-      <div class=class="w3-container" id="maps"></div>
+      <div class=class="w3-container" id="maps" style="width:100%;height:400px;"></div>
       <div class="w3-section">
             <label>Distrito</label>
             <select id="Filter-Ubication"> 
@@ -54,26 +48,25 @@ body {font-size:16px;}
         </div>
     </div>
     <!-- aqui pintare las imagnes correspondientes al restaurante-->
-    <div class="w3-row-padding" id="galery">
-        <div id="galery-retaurant" class="w3-half">
+    <div class="w3-container" id="galery">
+        <div id="galery-retaurant" class="w3-section">
     </div>
     <!-- aqui aparece el modal luego de hacer click-->
-    <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <div  id="modal01" class="w3-modal w3-black " style="padding-top:0" onclick="this.style.display='none'">
                                                              <!-- En cuanto le des click al modal  ..^.. -->
         <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
         <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
         <img id="img01" class="w3-image">
         <p id="modal-name"></p>
-        <p id="modal-direction"></p>
         </div>
     </div>
     <!-- register restaurant -->
-    <div class="w3-container" id="register-restaurant" style="margin-top:75px">
-        <h1 class="w3-xxxlarge w3-text-red"><b>Registre Restaurante</b></h1>
+    <div class="w3-container"  style="margin-top:75px" >
+        <h1 class="w3-xxxlarge w3-text-red" id="register-restaurant"><b>Registre Restaurante</b></h1>
         <hr style="width:50px;border:5px solid red" class="w3-round">
         <p>Hola ingresa los datos correspondientes de tu restaurante para que aparezca en el buscador</p>
         <form action="/action_page.php" target="_blank">
-        <div class="w3-section">
+        <div class="w3-section" >
             <label>Nombre</label>
             <input id="name" class="w3-input w3-border" type="text" name="Name" required>
         </div>
@@ -85,10 +78,9 @@ body {font-size:16px;}
             <label>Imagen url</label>
             <input id="image" class="w3-input w3-border" type="text" name="Message" required>
         </div>
-        <div class="w3-section">
+        <div class="w3-section" >
             <label>Distrito</label>
             <select id="Ubication"> 
-                <option >Elige</option> 
                 <option value="Barranco">Barranco</option> 
                 <option value="Chorrillos">Chorrillos</option> 
                 <option value="Miraflores">Miraflores</option> 
@@ -98,8 +90,10 @@ body {font-size:16px;}
         </form>  
     </div>
 </body> 
+<script src="js/funtions.js"></script>
 <script src="js/index.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?libraries=places"></script>
 <script>
   // Initialize Firebase
   var config = {
