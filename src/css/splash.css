@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+  }  
+body{
+    background-color: #707070;
+    font-family:  'Pacifico', cursive;
+}
+.splash{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: orangered;
+  border-radius: 15%;
+  padding: 5px;
+  
+
+}
+.splash h1{
+    font-size: 50px;
+    color: #ffffff;
+}
+@media only screen and (min-width: 600px){
+    .splash h1{
+        font-size: 75px;
+        color: #ffffff;
+        padding: 20px;
+    }
+}
