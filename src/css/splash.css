@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Pacifico');
 
 *{
     margin:0;
@@ -6,8 +5,8 @@
     box-sizing: border-box;
   }  
 body{
-    background-color: #707070;
-    font-family:  'Pacifico', cursive;
+    background-color: #ffffff;
+    font-family: "Poppins", sans-serif
 }
 .splash{
   position: absolute;
@@ -16,7 +15,8 @@ body{
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   text-align: center;
-  background-color: orangered;
+  border-style: solid;
+  border-color: red;
   border-radius: 15%;
   padding: 5px;
   
@@ -24,12 +24,12 @@ body{
 }
 .splash h1{
     font-size: 50px;
-    color: #ffffff;
+    color: #000000;
 }
 @media only screen and (min-width: 600px){
     .splash h1{
         font-size: 75px;
-        color: #ffffff;
+        color: #000000;
         padding: 20px;
     }
 }

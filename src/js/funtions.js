@@ -34,11 +34,16 @@ const onClick=(element,direction)=>{
 const paintData=(direccion,name,url,directionHtml)=>{
 
     const img = document.createElement('img');
+    const p = document.createElement("p");
+    p.setAttribute('class','w3-xlarge w3-text-black');
+    const text = document.createTextNode(name);
+    p.appendChild(text); 
     img.setAttribute('src',url);
     img.setAttribute('style','width:50%');
     img.setAttribute('class','img');
     img.setAttribute('alt',name+" <br>  dirección: "+direccion);
     img.setAttribute('onclick',"onClick(this)");
+    directionHtml.appendChild(p);  
     directionHtml.appendChild(img);  
 }
 //funcion que llama todos los datos
@@ -63,7 +68,7 @@ const seeAllData=()=>{
          paintData(direction,name,imgUrl,galeryRestaurant);
      })
  }
- //funciones del mapa
+/*//funciones del mapa
  const finMe=(directionHtml)=>{
      console.log(directionHtml);
      
@@ -83,63 +88,67 @@ const seeAllData=()=>{
      const showError=()=>{
         directionHtml.innerHTML=`<p>No se pudo obtener la ubicación</p>`
      }
-     navigator.geolocation.getCurrentPosition(showPosition,showError);
+     navigator.geolocation.getCurrentPosition=(showPosition,showError)=>{};
 
- };
- var map;
- var infowindow;
-
- function initMap()
+ };*/
+ //variables para almacenar
+ let map;
+ let infowindow;
+//pintando el mapa
+ const initMap=()=>
  {
  // Creamos un mapa con las coordenadas actuales
-   navigator.geolocation.getCurrentPosition(function(pos) {
+   navigator.geolocation.getCurrentPosition((position)=> {
 
-   lat = pos.coords.latitude;
-   lon = pos.coords.longitude;
+    const latitud=position.coords.latitude;
+    const longitud=position.coords.longitude;
 
-   var myLatlng = new google.maps.LatLng(lat, lon);
-
-   var mapOptions = {
-     center: myLatlng,
+   const myUbication = new google.maps.LatLng(latitud, longitud);
+   //La propiedad del center especifica dónde centrar el mapa (usando las coordenadas de latitud y longitud)
+   //mapTypeId: google.maps.MapTypeId.(hybrid=>>es un tipo de mapa ejm:roadmap,satellite,hybrid,terrain)le dice de que forma quiere mostrar el mapa
+   const locationInstructions = {
+     center: myUbication,
      zoom: 14,
-     mapTypeId: google.maps.MapTypeId.SATELLITE
+     mapTypeId: google.maps.MapTypeId.hybrid
    };
-
-   map = new google.maps.Map(mapa,  mapOptions);
+   //new google.maps.Map(direccion html donde se va a pintar el mapa, coordenadas del mapa minimo debe tener lt , ln y zoom );
+   map = new google.maps.Map(mapa, locationInstructions);
 
    // Creamos el infowindow
+   //google.maps.InfoWindow(); especifica los parámetros iniciales para mostrar la ventana de información.(que se muestra en el mapa)
    infowindow = new google.maps.InfoWindow();
 
    // Especificamos la localización, el radio y el tipo de lugares que queremos obtener
-   var request = {
-     location: myLatlng,
+   const request = {
+     location: myUbication,
      radius: 5000,
      types: ['restaurant']
    };
 
    // Creamos el servicio PlaceService y enviamos la petición.
-   var service = new google.maps.places.PlacesService(map);
+   const service = new google.maps.places.PlacesService(map);
 
-   service.nearbySearch(request, function(results, status) {
+   service.nearbySearch(request, (results, status)=> {
      if (status === google.maps.places.PlacesServiceStatus.OK) {
-       for (var i = 0; i < results.length; i++) {
+    
+       for (let i = 0; i < results.length; i++) {
          crearMarcador(results[i]);
        }
      }
    });
  });
 }
-
- function crearMarcador(place)
+// creando los marcadores
+ const crearMarcador=(place)=>
  {
    // Creamos un marcador
-   var marker = new google.maps.Marker({
+   const markerUbication = new google.maps.Marker({
      map: map,
      position: place.geometry.location
    });
 
  // Asignamos el evento click del marcador
-   google.maps.event.addListener(marker, 'click', function() {
+   google.maps.event.addListener(markerUbication, 'click', ()=> {
      infowindow.setContent(place.name);
      infowindow.open(map, this);
    });

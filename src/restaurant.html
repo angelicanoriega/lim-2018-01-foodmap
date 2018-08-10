@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>foo-map</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -8,11 +8,11 @@
 <link rel="stylesheet" href="css/index.css">
 <body>
 
-<!-- Sidebar/menu -->
+<!-- Barra lateral / menú -->
 <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
   <a href="javascript:void(0)"  class="w3-button w3-hide-large w3-display-topleft" onclick="w3_close()" style="width:100%;font-size:22px">Salir del menu</a>
   <div class="w3-container">
-    <h3 class="w3-padding-64"><b>Food Map</b></h3>
+    <h3 class="w3-padding-64" id="title"><b>Food Map</b></h3>
   </div>
   <div class="w3-bar-block">
     <a href="#"  onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Inicio</a> 
@@ -21,13 +21,13 @@
   </div>
 </nav>
 
-<!-- Top menu on small screens -->
+<!-- Menú superior en pantallas pequeñas -->
 <header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
   <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
   <span>Food Map</span>
 </header>
 
-<!-- Overlay effect when opening sidebar on small screens -->
+<!-- Efecto de superposición al abrir la barra lateral en pantallas pequeñas-->
 <div class="w3-overlay w3-hide-large"  style="cursor:pointer" title="close side menu" onclick="w3_close()" id="myOverlay"></div>
 <!-- !Contenido de la pagina! -->
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
@@ -37,14 +37,15 @@
       <h1 class="w3-xxxlarge w3-text-red"><b>Restaurantes</b></h1>
       <hr style="width:50px;border:5px solid red" class="w3-round">
       <div class=class="w3-container" id="maps" style="width:100%;height:400px;"></div>
-      <div class="w3-section">
-            <label>Distrito</label>
+      <div class="w3-section ">
+            <label class="w3-xxlarge w3-text-red">Distrito a filtrar: </label>
             <select id="Filter-Ubication"> 
                 <option value="all-restaurant">Elige fitrar por:</option> 
                 <option value="Barranco">Barranco</option> 
                 <option value="Chorrillos">Chorrillos</option> 
                 <option value="Miraflores">Miraflores</option> 
             </select> 
+            <hr style="width:50px;border:5px solid red" class="w3-round">
         </div>
     </div>
     <!-- aqui pintare las imagnes correspondientes al restaurante-->
@@ -52,10 +53,10 @@
         <div id="galery-retaurant" class="w3-section">
     </div>
     <!-- aqui aparece el modal luego de hacer click-->
-    <div  id="modal01" class="w3-modal w3-black " style="padding-top:0" onclick="this.style.display='none'">
+    <div   id="modal01" class="w3-modal w3-black " style="padding-top:0" onclick="this.style.display='none'">
                                                              <!-- En cuanto le des click al modal  ..^.. -->
-        <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
-        <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+        <span  class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+        <div  class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
         <img id="img01" class="w3-image">
         <p id="modal-name"></p>
         </div>
