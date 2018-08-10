@@ -6,9 +6,8 @@ puedes crear una lista de restaurantes en un arreglo, en un objeto, consumir una
 
 #### Flujo de la aplicación.
 
-Vista splash con duración de 2 segundos que redirecciona a tu vista
-principal.
-![Splash](https://github.com/AnaSalazar/curricula-js/blob/04-social-network/04-social-network/02-jquery/08-code-challenges/foodmap/splash.jpg?raw=true)
+Gif que demuestra el flujo :
+![Splash](https://github.com/angelicanoriega/lim-2018-01-foodmap/blob/gh-pages/src/img-readme/flujo.gif)
 
 En la vista principal se muestran todos los restaurantes "cerca de ti" junto
 con el input para filtrar tu elección *(Los criterios de filtrado son decisión
