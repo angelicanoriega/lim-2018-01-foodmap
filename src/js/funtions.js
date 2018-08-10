@@ -32,10 +32,10 @@ const onClick=(element,direction)=>{
 }
 //Funcion que pinta la galeria de imagenes sobre los restaurantes
 const paintData=(direccion,name,url,directionHtml)=>{
-
+    const div=document.createElement('div');
     const img = document.createElement('img');
     const p = document.createElement("p");
-    p.setAttribute('class','w3-xlarge w3-text-black');
+    p.setAttribute('class',' w3-text-black');
     const text = document.createTextNode(name);
     p.appendChild(text); 
     img.setAttribute('src',url);
@@ -43,8 +43,9 @@ const paintData=(direccion,name,url,directionHtml)=>{
     img.setAttribute('class','img');
     img.setAttribute('alt',name+" <br>  dirección: "+direccion);
     img.setAttribute('onclick',"onClick(this)");
-    directionHtml.appendChild(p);  
-    directionHtml.appendChild(img);  
+    div.appendChild(img); 
+    div.appendChild(p);  
+    directionHtml.appendChild(div);  
 }
 //funcion que llama todos los datos
 const seeAllData=()=>{

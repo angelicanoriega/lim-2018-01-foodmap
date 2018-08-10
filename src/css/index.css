@@ -10,4 +10,18 @@ body {
 .w3-half img:hover{
     opacity:1
 }
-.img{display: inline;}
+#galery-retaurant{
+    margin:auto;
+    list-style:none;
+    padding:20px;
+    box-sizing:border-box;
+    display:flex;
+overflow: scroll;
+}
+#galery-retaurant div{
+    margin:10px;
+}
+#galery-retaurant div img{
+    width:150px;
+    height:100px;
+}
